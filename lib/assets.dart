@@ -3,6 +3,7 @@ import 'package:wonders/common_libs.dart';
 import 'package:wonders/logic/common/platform_info.dart';
 
 /// Loads bitmap assets into memory that may be required later
+/// 将位图资源加载到内存中，稍后可能需要
 class AppBitmaps {
   static late final BitmapDescriptor mapMarker;
 
@@ -15,6 +16,7 @@ class AppBitmaps {
 }
 
 /// Consolidates raster image paths used across the app
+/// 整合整个应用程序中使用的光栅图像路径
 class ImagePaths {
   static String root = 'assets/images';
   static String common = 'assets/images/_common';
@@ -35,12 +37,14 @@ class ImagePaths {
 }
 
 /// Consolidates SCG image paths in their own class, hints to the UI to use an SvgPicture to render
+/// 将 SCG 图像路径合并到自己的类中，提示 UI 使用 SvgPicture 进行渲染
 class SvgPaths {
   static String compassFull = '${ImagePaths.common}/compass-full.svg';
   static String compassSimple = '${ImagePaths.common}/compass-simple.svg';
 }
 
 /// For wonder specific assets, add an extension to [WonderType] for easy lookup
+/// 对于 Wonder 的特定资产，请添加 [WonderType] 扩展名以方便查找
 extension WonderAssetExtensions on WonderType {
   String get assetPath {
     switch (this) {

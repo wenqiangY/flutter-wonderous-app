@@ -13,6 +13,7 @@ import 'package:wonders/ui/screens/wallpaper_photo/wallpaper_photo_screen.dart';
 import 'package:wonders/ui/screens/wonder_details/wonders_details_screen.dart';
 
 /// Shared paths / urls used across the app
+/// 整个应用程序使用的共享路径/URL
 class ScreenPaths {
   static String splash = '/';
   static String intro = '/welcome';
@@ -30,6 +31,7 @@ class ScreenPaths {
 }
 
 /// Routing table, matches string paths to UI Screens, optionally parses params from the paths
+/// 路由表，将字符串路径与 UI 屏幕相匹配，可选择解析路径中的参数
 final appRouter = GoRouter(
   redirect: _handleRedirect,
   routes: [
@@ -77,6 +79,7 @@ final appRouter = GoRouter(
 );
 
 /// Custom GoRoute sub-class to make the router declaration easier to read
+/// 自定义 GoRoute 子类，使路由器声明更易于阅读
 class AppRoute extends GoRoute {
   AppRoute(String path, Widget Function(GoRouterState s) builder,
       {List<GoRoute> routes = const [], this.useFade = false})
@@ -105,6 +108,7 @@ class AppRoute extends GoRoute {
 
 String? _handleRedirect(BuildContext context, GoRouterState state) {
   // Prevent anyone from navigating away from `/` if app is starting up.
+  // 如果应用程序正在启动，则防止任何人离开“/”（重定向到"/"）。
   if (!appLogic.isBootstrapComplete && state.location != ScreenPaths.splash) {
     return ScreenPaths.splash;
   }

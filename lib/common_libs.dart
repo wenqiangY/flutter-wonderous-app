@@ -1,4 +1,5 @@
 /// Consolidate imports that are common across the app.
+/// 整合应用程序中常见的导入。
 
 export 'dart:math';
 
