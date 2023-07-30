@@ -18,7 +18,7 @@ class WondersAppScaffold extends StatelessWidget {
     // 设置应用程序中动画的默认时间
     Animate.defaultDuration = _style.times.fast;
     // Create a style object that will be passed down the widget tree
-    // 创建一个将在小部件树中传递的样式对象
+    // 创建一个将在小部件树中传递的样式对象(大白话：获取当前屏幕信息，传递给AppStyle)
     _style = AppStyle(screenSize: context.sizePx);
     return KeyedSubtree(
       key: ValueKey($styles.scale),
