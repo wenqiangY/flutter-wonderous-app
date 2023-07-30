@@ -40,6 +40,7 @@ class StringUtils {
   }
 
   /// Gracefully handles null values, and skips the suffix when null
+  /// 优雅地处理空值，并在空时跳过后缀
   static String safeGet(String value, [String? suffix]) {
     return value + (value.isNotEmpty ? suffix ?? '' : '');
   }

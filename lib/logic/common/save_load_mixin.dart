@@ -27,6 +27,7 @@ mixin ThrottledSaveLoadMixin {
   Future<void> scheduleSave() async => _throttle.call(save);
 
   /// Serialization
+  /// 序列化
   String get fileName;
   Map<String, dynamic> toJson();
   void copyFromJson(Map<String, dynamic> value);

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+/// 本地数据存储
 class JsonPrefsFile {
   JsonPrefsFile(this.name);
   final String name;

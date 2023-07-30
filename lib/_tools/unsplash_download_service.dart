@@ -13,6 +13,7 @@ class UnsplashDownloadService {
   static final WondersLogic _wondersLogic = WondersLogic();
 
   /// Downloads one image in various sizes
+  /// 下载不同尺寸的一张图像
   static Future<int> downloadImageSet(String id) async {
     final photo = await _unsplash.loadInfo(id);
     int saveCount = 0;
@@ -35,6 +36,7 @@ class UnsplashDownloadService {
   }
 
   /// Downloads all images for a single collection, in various sizes
+  /// 下载单个集合的所有图像（各种尺寸）
   static Future<void> downloadCollectionImages(WonderData data) async {
     final collection = await _unsplash.loadCollectionPhotos(data.unsplashCollectionId) ?? [];
     debugPrint('download: ${collection.length} images for ${data.title}');
@@ -46,8 +48,10 @@ class UnsplashDownloadService {
   }
 
   /// Downloads all images for all collections
+  /// 下载所有集合的所有图像
   static Future<void> downloadAllCollections() async {
     /// Note: intentionally not in parallel so as to not annoy the unsplash servers
+    /// 注意：故意不并行，以免惹恼 unsplash 服务器
     for (var w in _wondersLogic.all) {
       await downloadCollectionImages(w);
     }
@@ -55,8 +59,11 @@ class UnsplashDownloadService {
 
   /// Generates a map we can use to look up collection images without needing to copy all 200 ids by hand.
   /// Spits the results into the log, developers can copy and paste them from there into a dart file somewhere.
+  /// 生成一个地图，我们可以用它来查找集合图像，而无需手动复制所有 200 个 id。
+  /// 将结果写入日志，开发人员可以将它们从那里复制并粘贴到某个地方的 dart 文件中。
   static Future<void> printPhotosByCollectionIdMap() async {
     /// Note: intentionally not in parallel so as to not annoy the unsplash servers
+    /// 注意：故意不并行，以免惹恼 unsplash 服务器
     Map<String, List<String>> imageListByCollectionId = {};
     for (var w in _wondersLogic.all) {
       final collection = await _unsplash.loadCollectionPhotos(w.unsplashCollectionId) ?? [];

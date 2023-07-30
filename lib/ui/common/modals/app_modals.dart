@@ -77,6 +77,7 @@ class OkCancelModal extends StatelessWidget {
 }
 
 /// Allows for a title, msg and body widget
+/// 允许标题、消息和正文小部件
 class _BaseContentModal extends StatelessWidget {
   final String? title;
   final String? msg;

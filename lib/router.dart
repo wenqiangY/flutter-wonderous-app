@@ -35,12 +35,14 @@ class ScreenPaths {
 final appRouter = GoRouter(
   redirect: _handleRedirect,
   routes: [
+    /// ShellRoute类似于Vue Router中 <router-view/> 组件
     ShellRoute(
+        /// 所有页面的骨架
         builder: (context, router, navigator) {
           return WondersAppScaffold(child: navigator);
         },
         routes: [
-          AppRoute(ScreenPaths.splash, (_) => Container(color: $styles.colors.greyStrong)), // This will be hidden
+          AppRoute(ScreenPaths.splash, (_) => Container(color: $styles.colors.greyStrong)), /// This will be hidden (这将被隐藏)
           AppRoute(ScreenPaths.home, (_) => HomeScreen()),
           AppRoute(ScreenPaths.intro, (_) => IntroScreen()),
           AppRoute('/wonder/:type', (s) {
@@ -79,7 +81,7 @@ final appRouter = GoRouter(
 );
 
 /// Custom GoRoute sub-class to make the router declaration easier to read
-/// 自定义 GoRoute 子类，使路由器声明更易于阅读
+/// 继承自 GoRoute 的子类，使路由器声明更易于阅读
 class AppRoute extends GoRoute {
   AppRoute(String path, Widget Function(GoRouterState s) builder,
       {List<GoRoute> routes = const [], this.useFade = false})

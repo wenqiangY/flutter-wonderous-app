@@ -35,6 +35,7 @@ class SettingsLogic with ThrottledSaveLoadMixin {
     currentLocale.value = value.languageCode;
     await localeLogic.loadIfChanged(value);
     // Re-init controllers that have some cached data that is localized
+    // 重新初始化具有一些本地化缓存数据的控制器
     wondersLogic.init();
     timelineLogic.init();
   }

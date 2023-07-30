@@ -153,6 +153,7 @@ class _ArtifactSearchHelperState extends State<ArtifactSearchHelper> {
 
   Future<void> _parseId(int id, Map? json) async {
     // catch all error conditions:
+    // 捕获所有错误条件：
     if (json == null) return _logError(id, 'could not parse json');
     if ((json['title'] ?? '') == '') return _logError(id, 'missing title');
     if (!json.containsKey('objectBeginDate') || !json.containsKey('objectBeginDate')) {
@@ -275,6 +276,8 @@ class _ArtifactSearchHelperState extends State<ArtifactSearchHelper> {
 
     // iterate through all items, and count the number of times keywords show up
     // but don't count multiple times for a single item
+    // 遍历所有项目，并计算关键字出现的次数
+    // 但不要对单个项目进行多次计数
     for (int i = 0; i < data.length; i++) {
       ignore.clear();
       ignore.addAll([
