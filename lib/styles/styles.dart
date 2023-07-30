@@ -35,23 +35,29 @@ class AppStyle {
   late final double scale;
 
   /// The current theme colors for the app
+  /// 应用程序当前的主题颜色
   final AppColors colors = AppColors();
 
   /// Rounded edge corner radii
+  /// 圆边角半径
   late final _Corners corners = _Corners();
 
   late final _Shadows shadows = _Shadows();
 
   /// Padding and margin values
+  /// 填充和边距值
   late final _Insets insets = _Insets(scale);
 
   /// Text styles
+  /// 文字样式
   late final _Text text = _Text(scale);
 
   /// Animation Durations
+  /// 动画持续时间
   final _Times times = _Times();
 
   /// Shared sizes
+  /// 共享尺寸
   late final _Sizes sizes = _Sizes();
 }
 
@@ -156,6 +162,7 @@ class _Corners {
 }
 
 // TODO: add, @immutable when design is solidified
+// TODO：当设计固化时添加@immutable
 class _Sizes {
   double get maxContentWidth1 => 800;
   double get maxContentWidth2 => 600;
